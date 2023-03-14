@@ -1,0 +1,16 @@
+header {
+  width: auto;
+  display: flex;
+  padding: 1rem 2rem;
+}
+
+header span {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffc097;
+}
+
+header span .dot {
+  font-size: 2.2rem;
+  color: #fe7f2d;
+}

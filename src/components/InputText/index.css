@@ -1,0 +1,51 @@
+div.input {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+}
+
+div.input div {
+  display: flex;
+  border: 2px solid #cccccc62;
+  border-radius: 4px;
+  align-items: center;
+}
+
+div.input input {
+  padding: 0.8rem 1.4rem;
+  font-size: 1.2rem;
+  background: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  color: #818181;
+}
+
+div.input div:focus-within {
+  box-shadow: 0 0 1px 2px #ffc097;
+}
+
+
+
+div.input label {
+  position: absolute;
+  padding: 0 0.5rem;
+  font-weight: 700;
+  top: -0.6rem;
+  left: 1rem;
+  font-size: 1rem;
+  background-color: #0d1321;
+}
+
+div.input span {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  padding: 1rem 1.4rem;
+  font-weight: 700;
+  border-left: 2px solid #cccccc13;
+  font-size: 1rem;
+  color: #ffffff62;
+  background-color: #cccccc1a;
+}
