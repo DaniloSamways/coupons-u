@@ -21,10 +21,16 @@ function App() {
   const generateAccount = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true)
-    const { user, password, domain } = await createNewAccount()
-    setPassword(password)
-    setDomain(domain)
-    setEmail(user)
+    try {
+      const { user, password, domain } = await createNewAccount()
+      notification('Conta gerada com sucesso!', 'success')
+      setPassword(password!)
+      setDomain(domain)
+      setEmail(user)
+    } catch (error) {
+      notification('Erro ao gerar conta!', 'error')
+    }
+    
     setLoading(false)
   }
 
