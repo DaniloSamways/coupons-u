@@ -8,6 +8,7 @@ import { findMCDonaldsCode } from './utils/findMCDonaldsCode';
 import { generateCpf } from './utils/generateCpf';
 import { FiCopy } from 'react-icons/fi'
 import { enqueueSnackbar } from 'notistack'
+import { createNewAccount } from './utils/mcdonalds/createNewAccount';
 
 async function findEmails(email: string) {
   return await fetch(`https://www.1secmail.com/api/v1/?action=getMessages&login=${email}&domain=1secmail.com`).then(res => res.json())
@@ -90,6 +91,7 @@ function App() {
             </IconButton>
           </div>
           <Button type="submit" disabled={loading}>Verify Account</Button>
+          <Button type="button" onClick={() => createNewAccount()}>Gerar nova conta</Button>
         </form>
       </main>
 
