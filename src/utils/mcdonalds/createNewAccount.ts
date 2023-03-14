@@ -18,5 +18,9 @@ export async function createNewAccount() {
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
 
-  return alert(`Email: ${email} \nSenha: Account1@`)
+  return {
+    user,
+    password: 'Account1@',
+    domain
+  }
 }

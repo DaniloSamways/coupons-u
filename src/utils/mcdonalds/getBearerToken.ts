@@ -4,7 +4,7 @@ export async function getBearerToken() {
     const res = await fetch("https://mcdonalds-api.vercel.app/");
     const data = await res.json();
     console.log('Token gerado')
-    return data.response[0].token;
+    return data.token;
   } catch (e) {
     console.log(e)
   }
