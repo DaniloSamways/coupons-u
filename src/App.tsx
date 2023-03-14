@@ -4,7 +4,7 @@ import { Button } from './components/Button';
 import { Header } from './components/Header';
 import IconButton from './components/IconButton';
 import InputText from './components/InputText';
-import { findMCDonaldsCoupon } from './utils/findMCDonaldsCoupon';
+import { findMCDonaldsCode } from './utils/findMCDonaldsCode';
 import { generateCpf } from './utils/generateCpf';
 import { FiCopy } from 'react-icons/fi'
 import { enqueueSnackbar } from 'notistack'
@@ -22,10 +22,10 @@ function App() {
   const [email, setEmail] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 
-  const findCouponLink = async (id: number) => {
-    const couponLink = await findMCDonaldsCoupon(email, id)
+  const findVerificationCodeLink = async (id: number) => {
+    const couponLink = await findMCDonaldsCode(email, id)
     generateNewCpf();
-    notification('Cupom encontrado!', 'success')
+    notification('Código de verificação encontrado!', 'success')
     setLoading(false)
     return window.open(couponLink, '_blank')!.focus();
   }
@@ -36,18 +36,18 @@ function App() {
     const response = await findEmails(email)
 
     if (response.length > 0) {
-      return findCouponLink(response[0].id)
+      return findVerificationCodeLink(response[0].id)
     }
 
     for (let c = 0; c < 15; c++) {
       const response = await findEmails(email)
       if (response.length > 0) {
-        return findCouponLink(response[0].id)
+        return findVerificationCodeLink(response[0].id)
       }
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
-    notification('Cupom não encontrado!', 'error')
+    notification('Código de verificação não encontrado!', 'error')
     setLoading(false)
   }
 
@@ -89,7 +89,7 @@ function App() {
               <FiCopy />
             </IconButton>
           </div>
-          <Button type="submit" disabled={loading}>Get Coupon</Button>
+          <Button type="submit" disabled={loading}>Verify Account</Button>
         </form>
       </main>
 
