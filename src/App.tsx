@@ -30,7 +30,7 @@ function App() {
     } catch (error) {
       notification('Erro ao gerar conta!', 'error')
     }
-    
+
     setLoading(false)
   }
 
@@ -45,7 +45,7 @@ function App() {
               placeholder='user'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              additional={domain ? domain : "@domain.com"}
+              additional={"@" + domain ? domain : "@domain.com"}
               required
               disabled
             />
